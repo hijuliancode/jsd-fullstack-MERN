@@ -1,0 +1,33 @@
+{
+  "name": "fullstack-api",
+  "version": "1.0.0",
+  "description": "Backend en Mongo y Express",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/hijuliancode/jsd-fullstack-MERN.git"
+  },
+  "keywords": [
+    "mongo",
+    "mongodb",
+    "express",
+    "node",
+    "nodejs"
+  ],
+  "author": "hijuliancode",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/hijuliancode/jsd-fullstack-MERN/issues"
+  },
+  "homepage": "https://github.com/hijuliancode/jsd-fullstack-MERN#readme",
+  "dependencies": {
+    "express": "^4.17.1",
+    "mongoose": "^5.9.16"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.4"
+  }
+}
