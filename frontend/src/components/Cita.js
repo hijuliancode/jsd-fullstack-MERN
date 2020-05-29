@@ -1,5 +1,6 @@
 import React, { Fragment } from 'react';
 import { Link, withRouter } from 'react-router-dom';
+import clienteAxios from '../config/axios';
 
 const Cita = (props) => {
   if(!props.cita) {
@@ -8,7 +9,21 @@ const Cita = (props) => {
   }
 
   // Extraer por props
-  const { cita: { nombre, propietario, telefono, fecha, hora, sintomas } } = props
+  const { cita: { _id, nombre, propietario, telefono, fecha, hora, sintomas } } = props
+
+  const eliminarCita = (_id) => {
+    console.log(_id);
+
+    clienteAxios.delete(`/pacientes/${_id}`)
+      .then(resultado => {
+        console.log(resultado) 
+        props.guardarConsultar(true)
+        props.history.push('/')
+      })
+      .catch(error => {
+        console.error('error => ', error)
+      })
+  }
 
   return (
     <Fragment>
@@ -35,7 +50,13 @@ const Cita = (props) => {
                   <p>Telefono: {telefono}</p>
                 </div>
                 <div className="d-flex justify-content-end">
-                  <button type="button" className="btn btn-danger text-uppercase py-2 px-5 font-weight-bold">Eliminar Cita &times;</button>
+                  <button
+                    className="btn btn-danger text-uppercase py-2 px-5 font-weight-bold"
+                    type="button"
+                    onClick={() => eliminarCita(_id)} // De esta forma hasta que el usuario de click se ejecuta la función
+                  >
+                    Eliminar Cita &times;
+                  </button>
                 </div>
               </div>
             </div>

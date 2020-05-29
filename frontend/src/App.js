@@ -52,7 +52,10 @@ function App() {
           render={(props) => {
             const cita = citas.filter(cita => cita._id === props.match.params.id)
             return (
-              <Cita cita={cita[0]} /> // La 0 porque filter crea un arreglo y solo necesitamos 1
+              <Cita
+                cita={cita[0]} // La 0 porque filter crea un arreglo y solo necesitamos 1
+                guardarConsultar={guardarConsultar}
+              />
             )
           }}
         />
