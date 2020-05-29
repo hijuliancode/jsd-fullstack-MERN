@@ -29,7 +29,7 @@ const Pacientes = ({citas}) => {
                     </p>
                     <div className="contacto py-3">
                       <p>Dueño: {cita.propietario}</p>
-                      <p>Telefono: {cita.propietario}</p>
+                      <p>Telefono: {cita.telefono}</p>
                     </div>
                   </Link>
                 ))
