@@ -1,21 +1,17 @@
 {
-  "name": "fullstack-js-api",
+  "name": "fullstack-js-desktop",
   "version": "1.0.0",
-  "description": "Backend en Mongo y Express",
+  "description": "Aplicación de Electron",
   "main": "index.js",
   "scripts": {
-    "dev": "nodemon ./index.js"
+    "start": "electron ."
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/hijuliancode/jsd-fullstack-MERN"
+    "url": "git+https://github.com/hijuliancode/jsd-fullstack-MERN.git"
   },
   "keywords": [
-    "mongo",
-    "mongodb",
-    "express",
-    "node",
-    "nodejs"
+    "electron"
   ],
   "author": "hijuliancode",
   "license": "ISC",
@@ -23,12 +19,7 @@
     "url": "https://github.com/hijuliancode/jsd-fullstack-MERN/issues"
   },
   "homepage": "https://github.com/hijuliancode/jsd-fullstack-MERN#readme",
-  "dependencies": {
-    "cors": "^2.8.5",
-    "express": "^4.17.1",
-    "mongoose": "^5.9.16"
-  },
   "devDependencies": {
-    "nodemon": "^2.0.4"
+    "electron": "^9.0.0"
   }
 }
