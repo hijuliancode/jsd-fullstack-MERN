@@ -24,5 +24,10 @@ module.exports = function() {
     pacienteController.actualizarPaciente
   )
 
+  // Elimina un paciente por su ID
+  router.delete('/pacientes/:id',
+    pacienteController.eliminarPaciente
+  )
+
   return router
 }
