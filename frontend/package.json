@@ -32,6 +32,8 @@
     "build": "yarn react-build && yarn electron-build",
     "start": "concurrently \"cross-env BROWSER=none npm run react-start\" \"wait-on http://localhost:3000 && electron .\""
   },
+  "main": "public/electron.js",
+  "homepage": "./",
   "repository": {
     "type": "git",
     "url": "https://github.com/hijuliancode/jsd-fullstack-MERN"
