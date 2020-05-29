@@ -30,7 +30,7 @@ function App() {
   return (
     <Router>
       <Switch>
-        <Route exact path="/" component={Pacientes} />
+        <Route exact path="/" component={() => <Pacientes citas={citas} />} />
         <Route exact path="/nueva-cita" component={NuevaCita} />
         <Route exact path="/cita/:id" component={Cita} />
       </Switch>
