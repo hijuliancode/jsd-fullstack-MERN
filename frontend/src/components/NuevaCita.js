@@ -1,7 +1,8 @@
 import React, { Fragment, useState } from 'react'
 import { Link } from 'react-router-dom'
+import clienteAxios from '../config/axios';
 
-const NuevaCita = () => {
+const NuevaCita = (props) => {
 
   // Generar State como objeto
   const [cita, guardarCita] = useState({
@@ -21,6 +22,21 @@ const NuevaCita = () => {
      })
    }
 
+   // Enviar petición a la API
+   const crearNuevaCita = e => {
+     e.preventDefault()
+     clienteAxios.post('/pacientes', cita)
+      .then(respuesta => {
+        console.log(respuesta)
+
+        // Redireccionar
+        props.history.push('/')
+      })
+      .catch(error => {
+        console.log(error)
+      })
+   }
+
   return (
     <Fragment>
       <h1 className="my-5">Crear Nueva Cita</h1>
@@ -31,7 +47,9 @@ const NuevaCita = () => {
           </div>
 
           <div className="col-md-8 mx-auto">
-            <form className="bg-white p-5 bordered">
+            <form
+              onSubmit={crearNuevaCita}
+              className="bg-white p-5 bordered">
               <div className="form-group">
                 <label htmlFor="nombre">Nombre Mascota</label>
                 <input
@@ -96,7 +114,7 @@ const NuevaCita = () => {
                     className="form-control"
                     name="sintomas"
                     rows="6"
-                    onChange={actualizarState}
+                    onChange={actualizarState} 
                 ></textarea>
               </div>
               <input type="submit" className="btn btn-primary mt-3 w-100 p-3 text-uppercase font-weight-bold" value="Crear Cita"  />
