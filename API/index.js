@@ -13,12 +13,13 @@ mongoose.connect('mongodb://localhost/veterinaria', {
   useFindAndModify: false
 })
 
-// Habilitar el body-parser
+// // Habilitar el body-parser
 server.use(bodyParser.json())
 server.use(bodyParser.urlencoded({extended: true}))
 
 // Habilitar Routing
 server.use('/', routes())
 
-server.listen(4000, () => console.info('Servidor funcionando...')) // Puerto y arrancar el servidor
- 
+server.listen(4000, () => {
+  console.info('Servidor funcionando...')
+ }) // Puerto y arrancar el servidor
