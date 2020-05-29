@@ -1,7 +1,26 @@
-import React, { Fragment } from 'react'
+import React, { Fragment, useState } from 'react'
 import { Link } from 'react-router-dom'
 
 const NuevaCita = () => {
+
+  // Generar State como objeto
+  const [cita, guardarCita] = useState({
+    nombre: '',
+    propietario: '',
+    fecha: '',
+    hora: '',
+    telefono: '',
+    sintomas: ''
+  })
+
+  // leer datos del formulario
+   const actualizarState = e => {
+     guardarCita({
+       ...cita,
+       [e.target.name]: e.target.value // El nombre del input en el formulario y su valor
+     })
+   }
+
   return (
     <Fragment>
       <h1 className="my-5">Crear Nueva Cita</h1>
@@ -21,6 +40,7 @@ const NuevaCita = () => {
                     id="nombre"
                     name="nombre"
                     placeholder="Nombre Mascota"
+                    onChange={actualizarState}
                 />
               </div>
 
@@ -32,6 +52,7 @@ const NuevaCita = () => {
                     id="propietario"
                     name="propietario"
                     placeholder="Nombre Propietario"
+                    onChange={actualizarState}
                 />
               </div>
 
@@ -43,6 +64,7 @@ const NuevaCita = () => {
                     id="telefono"
                     name="telefono"
                     placeholder="Teléfono"
+                    onChange={actualizarState}
                 />
               </div>
 
@@ -53,6 +75,7 @@ const NuevaCita = () => {
                     className="form-control form-control-lg"
                     id="fecha"
                     name="fecha"
+                    onChange={actualizarState}
                 />
               </div>
 
@@ -63,6 +86,7 @@ const NuevaCita = () => {
                     className="form-control form-control-lg"
                     id="hora"
                     name="hora"
+                    onChange={actualizarState}
                 />
               </div>
 
@@ -72,6 +96,7 @@ const NuevaCita = () => {
                     className="form-control"
                     name="sintomas"
                     rows="6"
+                    onChange={actualizarState}
                 ></textarea>
               </div>
               <input type="submit" className="btn btn-primary mt-3 w-100 p-3 text-uppercase font-weight-bold" value="Crear Cita"  />
