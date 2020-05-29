@@ -8,7 +8,7 @@ const Paciente = require('../models/Paciente')
 exports.nuevoCliente = async (req, res, next) => {
   // Crear objeto de paciente con datos de request.body
   const paciente = new Paciente(req.body)
-  try { 
+  try {
     await paciente.save()
     res.json({ mensaje: 'El cliente se agregó correctamente' })
   } catch (error) {
@@ -23,6 +23,16 @@ exports.obtenerPacientes = async (req, res, next) => {
     res.json(pacientes)
   } catch (error) {
     console.error(error);
-    next() 
+    next()
+  }
+}
+
+exports.obtenerPaciente = async (req, res, next) => {
+  try {
+    const paciente = await Paciente.findById(req.params.id)
+    res.json(paciente)
+  } catch (error) {
+    console.error(error);
+    next()
   }
 }
