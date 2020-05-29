@@ -2,7 +2,6 @@ import React, { Fragment } from 'react';
 import { Link } from 'react-router-dom';
 
 const Pacientes = ({citas}) => {
-  console.log(citas);
 
   if(citas.length === 0) return null // Evita que lance un error cuando no hay datos, una vez que hayan datos se vuelve a ejecutar el componente y ya podemos retornar una respuesta (mostrar el componente)
 

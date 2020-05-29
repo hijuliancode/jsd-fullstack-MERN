@@ -1,5 +1,5 @@
 import React, { Fragment, useState } from 'react'
-import { Link } from 'react-router-dom'
+import { Link, withRouter } from 'react-router-dom'
 import clienteAxios from '../config/axios';
 
 const NuevaCita = (props) => {
@@ -29,11 +29,14 @@ const NuevaCita = (props) => {
       .then(respuesta => {
         console.log(respuesta)
 
+        // Volver a listar usuarios en la página principal
+        props.guardarConsultar(true)
+
         // Redireccionar
         props.history.push('/')
       })
       .catch(error => {
-        console.log(error)
+        console.error(error)
       })
    }
 
@@ -127,4 +130,4 @@ const NuevaCita = (props) => {
   )
 }
 
-export default NuevaCita
+export default withRouter(NuevaCita)
