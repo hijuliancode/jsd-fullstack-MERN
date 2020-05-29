@@ -9,5 +9,10 @@ module.exports = function() {
     pacienteController.nuevoCliente
   )
 
+  // Obtener todos los registros de pacientes en las DB
+  router.get('/pacientes',
+    pacienteController.obtenerPacientes
+  )
+
   return router
 }
