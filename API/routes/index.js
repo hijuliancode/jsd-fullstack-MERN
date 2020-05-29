@@ -19,5 +19,10 @@ module.exports = function() {
     pacienteController.obtenerPaciente
   )
 
+  // Actualizar paciente
+  router.put('/pacientes/:id',
+    pacienteController.actualizarPaciente
+  )
+
   return router
 }
